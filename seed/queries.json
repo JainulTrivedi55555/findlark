@@ -1,0 +1,475 @@
+[
+  {
+    "category": "skill+city+company type",
+    "brief": "senior TypeScript engineers in Chicago who have worked at a startup",
+    "filters": {
+      "seniorities": [
+        "senior"
+      ],
+      "skills": [
+        "TypeScript"
+      ],
+      "cities": [
+        "Chicago"
+      ],
+      "company_types": [
+        "startup"
+      ]
+    },
+    "expected_ids": [
+      "cand_1537",
+      "cand_2310",
+      "cand_2708",
+      "cand_3972",
+      "cand_4971",
+      "cand_4919",
+      "cand_0550",
+      "cand_2688"
+    ]
+  },
+  {
+    "category": "role+city+skill",
+    "brief": "data engineers in Denver who know Airflow",
+    "filters": {
+      "roles": [
+        "Data Engineer"
+      ],
+      "cities": [
+        "Denver"
+      ],
+      "skills": [
+        "Airflow"
+      ]
+    },
+    "expected_ids": [
+      "cand_3444",
+      "cand_2287",
+      "cand_4382",
+      "cand_1821",
+      "cand_1958",
+      "cand_0142",
+      "cand_3953",
+      "cand_0562",
+      "cand_0810",
+      "cand_4824",
+      "cand_2011",
+      "cand_1433",
+      "cand_3355",
+      "cand_1839",
+      "cand_0973",
+      "cand_3799",
+      "cand_4784"
+    ]
+  },
+  {
+    "category": "role+degree",
+    "brief": "product managers with an MBA",
+    "filters": {
+      "roles": [
+        "Product Manager"
+      ],
+      "degrees": [
+        "MBA"
+      ]
+    },
+    "expected_ids": [
+      "cand_0023",
+      "cand_0109",
+      "cand_1000",
+      "cand_4332",
+      "cand_4545",
+      "cand_0294",
+      "cand_0759",
+      "cand_1067",
+      "cand_1825",
+      "cand_4963",
+      "cand_4829",
+      "cand_4907",
+      "cand_0265",
+      "cand_0467",
+      "cand_2456",
+      "cand_3103",
+      "cand_3849",
+      "cand_3926",
+      "cand_2196",
+      "cand_2308",
+      "cand_2496",
+      "cand_4019",
+      "cand_0609",
+      "cand_2819",
+      "cand_3443",
+      "cand_0213",
+      "cand_1594",
+      "cand_2242",
+      "cand_4159",
+      "cand_0672",
+      "cand_0838",
+      "cand_1029",
+      "cand_2006",
+      "cand_2314",
+      "cand_2523",
+      "cand_3189",
+      "cand_3467",
+      "cand_3574",
+      "cand_4413",
+      "cand_1717",
+      "cand_2923",
+      "cand_0226",
+      "cand_0299",
+      "cand_1329",
+      "cand_4245",
+      "cand_1527",
+      "cand_3469",
+      "cand_4552",
+      "cand_0659",
+      "cand_2784",
+      "cand_0341",
+      "cand_1490",
+      "cand_2726",
+      "cand_3735",
+      "cand_4158",
+      "cand_1182",
+      "cand_2328",
+      "cand_2413",
+      "cand_3041",
+      "cand_3151",
+      "cand_4373",
+      "cand_0062",
+      "cand_0310",
+      "cand_0606",
+      "cand_2269",
+      "cand_3854",
+      "cand_4538"
+    ]
+  },
+  {
+    "category": "role+two skills",
+    "brief": "mobile engineers who know Kotlin and Android",
+    "filters": {
+      "roles": [
+        "Mobile Engineer"
+      ],
+      "skills": [
+        "Kotlin",
+        "Android"
+      ]
+    },
+    "expected_ids": [
+      "cand_0824",
+      "cand_1977",
+      "cand_3978",
+      "cand_4553",
+      "cand_4679",
+      "cand_0439",
+      "cand_0692",
+      "cand_2195",
+      "cand_2253",
+      "cand_2956",
+      "cand_3417",
+      "cand_3749",
+      "cand_4232",
+      "cand_4383",
+      "cand_4467",
+      "cand_1062",
+      "cand_1695",
+      "cand_2120",
+      "cand_2556",
+      "cand_3252",
+      "cand_3640",
+      "cand_4513",
+      "cand_4634",
+      "cand_4752",
+      "cand_0020",
+      "cand_1510",
+      "cand_2009",
+      "cand_2551",
+      "cand_2843",
+      "cand_4050",
+      "cand_4453",
+      "cand_4785",
+      "cand_0064",
+      "cand_0442",
+      "cand_1280",
+      "cand_1306",
+      "cand_2437",
+      "cand_2872",
+      "cand_4165",
+      "cand_4720",
+      "cand_4858",
+      "cand_0680",
+      "cand_1021",
+      "cand_2271",
+      "cand_2423",
+      "cand_2541",
+      "cand_2728",
+      "cand_2853",
+      "cand_3183",
+      "cand_4335",
+      "cand_0156",
+      "cand_2464",
+      "cand_2926",
+      "cand_3164",
+      "cand_3405",
+      "cand_3528",
+      "cand_4271",
+      "cand_4555",
+      "cand_4637",
+      "cand_0056",
+      "cand_0458",
+      "cand_1200",
+      "cand_1778",
+      "cand_2490",
+      "cand_2498",
+      "cand_2850",
+      "cand_3341",
+      "cand_3584",
+      "cand_4253",
+      "cand_0329",
+      "cand_0400",
+      "cand_0695",
+      "cand_0696",
+      "cand_0739",
+      "cand_1211",
+      "cand_1362",
+      "cand_2688",
+      "cand_4097",
+      "cand_0036",
+      "cand_0507",
+      "cand_0518",
+      "cand_1893",
+      "cand_3519",
+      "cand_3654",
+      "cand_3718",
+      "cand_3771",
+      "cand_3787",
+      "cand_3853",
+      "cand_4672",
+      "cand_4754",
+      "cand_4760",
+      "cand_0417",
+      "cand_0771",
+      "cand_1137",
+      "cand_2766",
+      "cand_3476",
+      "cand_3702",
+      "cand_4817",
+      "cand_0718",
+      "cand_0991",
+      "cand_1075",
+      "cand_1236",
+      "cand_2661",
+      "cand_3171",
+      "cand_3236",
+      "cand_3736",
+      "cand_3797",
+      "cand_0804",
+      "cand_0891",
+      "cand_1125",
+      "cand_2365",
+      "cand_2745",
+      "cand_3615",
+      "cand_4657",
+      "cand_0114",
+      "cand_2097",
+      "cand_2154",
+      "cand_2785",
+      "cand_3918",
+      "cand_4452",
+      "cand_4927",
+      "cand_1195",
+      "cand_2802",
+      "cand_3121",
+      "cand_3301",
+      "cand_3903",
+      "cand_4833",
+      "cand_0190",
+      "cand_0264",
+      "cand_1154",
+      "cand_1396",
+      "cand_3105",
+      "cand_3329",
+      "cand_4061",
+      "cand_4975"
+    ]
+  },
+  {
+    "category": "seniority+role+city",
+    "brief": "staff backend engineers in San Francisco",
+    "filters": {
+      "seniorities": [
+        "staff"
+      ],
+      "roles": [
+        "Backend Engineer"
+      ],
+      "cities": [
+        "San Francisco"
+      ]
+    },
+    "expected_ids": [
+      "cand_0089",
+      "cand_0572",
+      "cand_1030",
+      "cand_2005",
+      "cand_2173",
+      "cand_2189",
+      "cand_2438",
+      "cand_3655",
+      "cand_3838",
+      "cand_4945",
+      "cand_0479",
+      "cand_2007",
+      "cand_0008",
+      "cand_0113",
+      "cand_1169",
+      "cand_3285",
+      "cand_3340",
+      "cand_3661",
+      "cand_3968",
+      "cand_4586",
+      "cand_4682",
+      "cand_0069",
+      "cand_0930",
+      "cand_1837",
+      "cand_2648",
+      "cand_4202",
+      "cand_0117",
+      "cand_1632",
+      "cand_3593",
+      "cand_4340",
+      "cand_4406",
+      "cand_2046",
+      "cand_2720",
+      "cand_2750",
+      "cand_3080",
+      "cand_3176",
+      "cand_3318",
+      "cand_3536",
+      "cand_3902",
+      "cand_4337"
+    ]
+  },
+  {
+    "category": "role+school",
+    "brief": "data scientists who studied at Carnegie Mellon",
+    "filters": {
+      "roles": [
+        "Data Scientist"
+      ],
+      "schools": [
+        "Carnegie Mellon University"
+      ]
+    },
+    "expected_ids": [
+      "cand_2998",
+      "cand_4716",
+      "cand_1952",
+      "cand_2549",
+      "cand_3489",
+      "cand_3269",
+      "cand_4403",
+      "cand_4618",
+      "cand_2338",
+      "cand_1428",
+      "cand_2044",
+      "cand_3156",
+      "cand_0237",
+      "cand_0995",
+      "cand_3963",
+      "cand_0232"
+    ]
+  },
+  {
+    "category": "role+city+open",
+    "brief": "account executives in Atlanta who are open to work",
+    "filters": {
+      "roles": [
+        "Account Executive"
+      ],
+      "cities": [
+        "Atlanta"
+      ],
+      "open_to_work": true
+    },
+    "expected_ids": [
+      "cand_1980",
+      "cand_0903",
+      "cand_2948",
+      "cand_3866",
+      "cand_0284",
+      "cand_3590",
+      "cand_2839"
+    ]
+  },
+  {
+    "category": "seniority+role+city",
+    "brief": "junior product designers in Los Angeles",
+    "filters": {
+      "seniorities": [
+        "junior"
+      ],
+      "roles": [
+        "Product Designer"
+      ],
+      "cities": [
+        "Los Angeles"
+      ]
+    },
+    "expected_ids": [
+      "cand_1024",
+      "cand_4117",
+      "cand_1285",
+      "cand_3984",
+      "cand_4331"
+    ]
+  },
+  {
+    "category": "role+skill+city",
+    "brief": "recruiters in Seattle with technical recruiting experience",
+    "filters": {
+      "roles": [
+        "Recruiter"
+      ],
+      "cities": [
+        "Seattle"
+      ],
+      "skills": [
+        "Technical Recruiting"
+      ]
+    },
+    "expected_ids": [
+      "cand_0485",
+      "cand_3452",
+      "cand_0513",
+      "cand_4120",
+      "cand_0464",
+      "cand_3792",
+      "cand_4257",
+      "cand_4575",
+      "cand_4941",
+      "cand_0251",
+      "cand_1881",
+      "cand_3429",
+      "cand_4727",
+      "cand_3717",
+      "cand_3894",
+      "cand_4327",
+      "cand_4401"
+    ]
+  },
+  {
+    "category": "unsupported",
+    "brief": "marketing managers who speak Spanish",
+    "filters": {
+      "roles": [
+        "Marketing Manager"
+      ],
+      "unsupported": [
+        {
+          "text": "speak Spanish"
+        }
+      ]
+    },
+    "expected_ids": []
+  }
+]

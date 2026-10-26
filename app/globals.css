@@ -1,0 +1,234 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Light theme only. The app never sets a .dark class, so `dark:` utilities in
+   the shadcn components never apply. Without this line Tailwind would fall back
+   to prefers-color-scheme and half-darken components on a dark-mode OS. */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  /* Fraunces (bundled by @fontsource-variable, no network): headings and big numbers only. */
+  --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --font-heading: var(--font-display);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.33);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-3xl: calc(var(--radius) * 2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/*
+ * Design tokens: warm paper, deep ink, ONE accent (pine, --primary) used only
+ * for the primary action, the active nav item and focus, and ONE calm tint
+ * (sand, --highlight/--secondary) for chips and highlights. Cards are slightly
+ * translucent over the backdrop (components/backdrop.tsx) but stay at 88%+
+ * opacity, so text contrast never depends on the background. Every text pair
+ * is at least 4.5:1 (checked in the design pass report).
+ */
+:root {
+  --background: oklch(0.962 0.014 85); /* paper */
+  --foreground: oklch(0.24 0.02 60); /* ink */
+  --card: oklch(0.992 0.005 85 / 0.88);
+  --card-foreground: var(--foreground);
+  /* The card colour, fully opaque: for anything fixed or sticky (bars, sheets)
+     and error cards, where content scrolling underneath must never show through. */
+  --surface: oklch(0.992 0.005 85);
+  --popover: oklch(0.995 0.004 85); /* floating surfaces are opaque */
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.4 0.075 190); /* pine */
+  --primary-foreground: oklch(0.985 0.005 85);
+
+  --secondary: oklch(0.925 0.04 82); /* sand */
+  --secondary-foreground: var(--foreground);
+  --highlight: oklch(0.9 0.07 80); /* words and matched skills */
+  --highlight-foreground: var(--foreground);
+  --muted: oklch(0.94 0.012 85);
+  --muted-foreground: oklch(0.46 0.02 65);
+  /* Hover / highlighted menu rows: warm grey, never the accent. */
+  --accent: oklch(0.94 0.014 85);
+  --accent-foreground: var(--foreground);
+  --subtle: oklch(0.975 0.008 85);
+
+  --destructive: oklch(0.5 0.18 27);
+  /* One border treatment: a hairline of ink at low opacity. */
+  --border: oklch(0.32 0.03 70 / 0.14);
+  --input: oklch(0.32 0.03 70 / 0.26);
+  --ring: var(--primary);
+
+  /* One radius: surfaces use rounded-xl, pills are fully round. */
+  --radius: 0.75rem;
+
+  /* Light pools of the backdrop. */
+  --pool-amber: oklch(0.86 0.11 78);
+  --pool-rose: oklch(0.84 0.075 15);
+  --pool-tint: oklch(0.85 0.06 190);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    color-scheme: light;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+  /* The display face is for page titles and big numbers; UI text stays Geist. */
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 560;
+    letter-spacing: -0.02em;
+  }
+}
+
+/*
+ * Hairline borders instead of shadows on floating surfaces. The shadcn
+ * components keep their ring-1 hairline; this only removes the drop shadows,
+ * so restyling stays here instead of in every component file.
+ */
+[data-slot="dropdown-menu-content"],
+[data-slot="popover-content"],
+[data-slot="sheet-content"],
+[data-slot="dialog-content"] {
+  --tw-shadow: 0 0 #0000;
+}
+
+/* Quiet card hover: border colour and a 1.5px lift (transform only). */
+@media (hover: hover) {
+  .lift {
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s;
+  }
+  .lift:hover {
+    transform: translateY(-1.5px);
+    border-color: var(--input);
+  }
+}
+
+/*
+ * Backdrop (components/backdrop.tsx): warm light on paper. Fixed, behind
+ * everything, only transform and opacity ever change. --bd-i is the intensity
+ * (1 on login, home and empty/error states, 0.4 where people read), --bd-boost
+ * brightens the pools while a search runs.
+ */
+.backdrop {
+  --bd-i: 0.4;
+  --bd-boost: 1;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  /* Paper: a faint vertical tonal gradient, lighter at the top. */
+  background: linear-gradient(180deg, oklch(0.975 0.012 88) 0%, var(--background) 55%, oklch(0.95 0.018 80) 100%);
+}
+.backdrop[data-mood="rich"] {
+  --bd-i: 1;
+}
+.backdrop[data-busy="true"] {
+  --bd-boost: 1.45;
+}
+.bd-layer {
+  position: absolute;
+  inset: 0;
+}
+.bd-pool {
+  position: absolute;
+  width: 75vmax;
+  height: 75vmax;
+  /* The gradient already fades to transparent, so no blur filter is needed. */
+  background: radial-gradient(closest-side, var(--c) 0%, color-mix(in oklch, var(--c) 55%, transparent) 40%, color-mix(in oklch, var(--c) 18%, transparent) 72%, transparent 100%);
+  opacity: min(1, calc(var(--bd-i) * var(--k) * var(--bd-boost)));
+  transition: opacity 0.4s ease-out;
+  will-change: transform;
+}
+.bd-pool.p1 { --c: var(--pool-amber); --k: 0.62; left: -22vmax; top: -30vmax; animation: bd-a 96s ease-in-out -18s infinite alternate; }
+.bd-pool.p2 { --c: var(--pool-rose); --k: 0.5; right: -26vmax; top: -8vmax; animation: bd-b 72s ease-in-out -40s infinite alternate; }
+.bd-pool.p3 { --c: var(--pool-tint); --k: 0.42; left: 12vw; bottom: -42vmax; animation: bd-c 118s ease-in-out -60s infinite alternate; }
+.bd-pool.p4 { --c: var(--pool-amber); --k: 0.4; right: -18vmax; bottom: -34vmax; animation: bd-d 64s ease-in-out -10s infinite alternate; }
+@keyframes bd-a { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(22vw, 14vh, 0) scale(1.18); } }
+@keyframes bd-b { from { transform: translate3d(0, 0, 0) scale(1.1); } to { transform: translate3d(-18vw, 20vh, 0) scale(0.92); } }
+@keyframes bd-c { from { transform: translate3d(-10vw, 0, 0) scale(0.95); } to { transform: translate3d(16vw, -12vh, 0) scale(1.15); } }
+@keyframes bd-d { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(-20vw, -16vh, 0) scale(1.2); } }
+/* Paper fibre and film grain: one static, tiled SVG (feTurbulence), never animated. */
+.bd-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.055;
+  background-size: 200px 200px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .22 0 0 0 0 .16 0 0 0 0 .1 0 0 0 1.4 -.2'/%3E%3C/filter%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .5' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .22 0 0 0 0 .16 0 0 0 0 .1 0 0 0 1.2 -.35'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3Crect width='200' height='200' filter='url(%23f)' opacity='.6'/%3E%3C/svg%3E");
+}
+/* Light from above: the edges and the bottom fall off a little. */
+.bd-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 95% at 50% 22%, transparent 55%, oklch(0.4 0.04 60 / 0.1) 100%);
+}
+.backdrop[data-paused="true"] .bd-pool,
+.backdrop[data-paused="true"] .bd-layer {
+  animation-play-state: paused;
+}
+/* Parallax layers only exist as compositor layers where parallax runs. */
+@media (pointer: fine) and (min-width: 641px) {
+  .bd-layer {
+    will-change: transform;
+  }
+}
+@media (max-height: 299px) {
+  .bd-pool {
+    animation-play-state: paused;
+  }
+}
+/* Phones: two pools, no parallax, to save battery. */
+@media (max-width: 640px) {
+  .bd-pool.p3,
+  .bd-pool.p4 {
+    display: none;
+  }
+}
+/* Reduced motion: one static composition. */
+@media (prefers-reduced-motion: reduce) {
+  /* .backdrop prefix: the per-pool animation rules above have the same weight as .bd-pool.p1. */
+  .backdrop .bd-pool {
+    animation: none;
+    will-change: auto;
+  }
+}
